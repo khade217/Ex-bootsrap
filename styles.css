@@ -1,0 +1,179 @@
+body {
+  background: #0a0a0a;
+  color: #f0f0f0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(0,120,255,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0,180,120,0.1) 0%, transparent 50%);
+}
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background:
+    radial-gradient(ellipse at center, rgba(10,20,40,0.85) 0%, rgba(0,0,0,0.95) 100%);
+}
+.islamic-pattern {
+  opacity: 0.15;
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(0,150,255,0.1) 35px, rgba(0,150,255,0.1) 70px),
+    repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(0,180,120,0.1) 35px, rgba(0,180,120,0.1) 70px),
+    radial-gradient(circle at 25% 25%, rgba(0,120,200,0.1) 2px, transparent 2px);
+  background-size: 100px 100px, 100px 100px, 50px 50px;
+  animation: patternFloat 25s ease-in-out infinite;
+}
+@keyframes patternFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(1deg); }
+}
+.main-title {
+  font-size: 4rem;
+  text-shadow: 0 0 30px rgba(0,150,255,0.8);
+  animation: glow 3s ease-in-out infinite;
+  background: linear-gradient(45deg, #0096ff, #00c080, #0096ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 30px rgba(0,150,255,0.8); }
+  50% { text-shadow: 0 0 50px rgba(0,150,255,1), 0 0 70px rgba(0,120,200,0.6); }
+}
+.subtitle {
+  font-size: 1.5rem;
+  color: #e0f7fa;
+  max-width: 700px;
+  margin: 0 auto;
+  animation: fadeInUp 2s ease-out;
+  line-height: 1.6;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 0.9; transform: translateY(0); }
+}
+.section-title {
+  font-size: 2.5rem;
+  color: #00c080;
+  text-shadow: 0 0 20px rgba(0,192,128,0.4);
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  display: block;
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #00c080, transparent);
+  margin: 1rem auto;
+}
+.tool-card {
+  background: linear-gradient(145deg, rgba(15,25,45,0.85) 0%, rgba(10,20,35,0.95) 100%);
+  border: 1px solid rgba(0,150,255,0.3);
+  border-radius: 16px;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+  min-height: 380px;
+}
+.tool-card .open-source-logo {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.2rem;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(0, 150, 255, 0.6));
+  transition: transform 0.3s ease;
+}
+.tool-card .tool-name {
+  color: #e0f7fa;
+  text-shadow: 0 0 10px rgba(0, 150, 255, 0.4);
+  font-weight: 600;
+}
+.tool-card .commercial-counterpart {
+  color: #8fd9f7;
+  font-style: italic;
+}
+.logo-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  background: linear-gradient(45deg, transparent, rgba(0, 70, 120, 0.15) 90%);
+  mix-blend-mode: soft-light;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: 16px;
+  z-index: 2;
+}
+.tech-category {
+  font-size: 0.95rem;
+  color: #00c080;
+  background: rgba(0, 20, 30, 0.7);
+  border-radius: 4px;
+  padding: 0.2rem 0.8rem;
+}
+.tool-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.4), inset 0 0 20px rgba(0,150,255,0.2);
+  border-color: rgba(0,150,255,0.6);
+}
+.tool-card:hover .open-source-logo {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 15px rgba(0,150,255,0.8));
+}
+.tool-card:hover .logo-overlay {
+  opacity: 1;
+}
+.geo-decoration {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+.geo-decoration::before,
+.geo-decoration::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 150, 255, 0.5);
+  transform-origin: center;
+  animation: geometricPulse 5s ease-in-out infinite;
+}
+.geo-decoration::before {
+  transform: rotate(45deg);
+}
+.geo-decoration::after {
+  transform: rotate(-45deg);
+  animation-delay: 2s;
+}
+@keyframes geometricPulse {
+  0%, 100% { transform: rotate(45deg) scale(1); opacity: 0.5; }
+  50%     { transform: rotate(45deg) scale(1.15); opacity: 1; }
+}
+.floating-ornament {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.25;
+  filter: blur(12px);
+  z-index: 0;
+}
+.ornament-1 { width: 220px; height: 220px; left: -80px; top: 60px; background: radial-gradient(circle, rgba(0,150,255,0.18), transparent 40%); }
+.ornament-2 { width: 160px; height: 160px; right: -60px; top: 160px; background: radial-gradient(circle, rgba(0,180,120,0.14), transparent 40%); }
+.ornament-3 { width: 120px; height: 120px; right: 40px; bottom: 40px; background: radial-gradient(circle, rgba(0,120,200,0.12), transparent 40%); }
+@media (max-width: 768px) {
+  .main-title { font-size: 2.5rem; }
+  .subtitle { font-size: 1.2rem; padding: 0 1rem; }
+  .section-title { font-size: 2rem; }
+  .geo-decoration { width: 60px; height: 60px; }
+  .floating-ornament { display: none; }
+}
